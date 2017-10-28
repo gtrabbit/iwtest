@@ -1,17 +1,26 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app" ng-controller="controller as controller">
+<html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<title>Frontend Applicant Test</title>
+	
+	
+	<title>Frontend Applicant Test</title>
+
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="app.js"></script>
+	<script src="country-display.js"></script>
+
 
 </head>
-<body>
+<body ng-app="iwApp" ng-controller="controller as controller">
 	<header>
 		<h1>Content Report</h1>
+		<hr>
 	</header>
-	<div>
-		<div>
+	<div class="top">
+		<div class="totals">
 			<h2 class="device-header"> Total Devices: {{totals['Devices']}} </h2>
 			<h2 class="channels-header"> Total Channels: {{totals['Channels']}} </h2>
 		</div>
@@ -54,12 +63,13 @@
 						ng-model="filter.typedFilter"
 						ng-change="filter.updateFilter('search', filter.typedFilter)">
 				</div>
+				<button ng-click="filter.updateFilter('clear')">Reset Filters</button>
 			</form>
-			<button ng-click="filter.updateFilter('clear')">Reset Filters</button>
+			
 		</div>
 	</div>
 	
-		
+	<hr>
 	
 	<ul>
 		<li class="country-list-item">
@@ -87,36 +97,11 @@
 
 			</div>
 		</li>
-		<li 
-			class="country-list-item" 
-			ng-repeat="country in controller.displayData">
-		
-		<!-- <country-display country="country"> </country-display> -->
-		<div class="country-disp">
-			<span class="country-name">{{country.name || 'Unnamed Nation'}}</span>
-			<div class="bars">
-			<span 
-				class="channels"
-				ng-style="{'width': '{{country.data['Channels'] + 20}}px'}"
-				>
-				{{country.data['Channels']}}
-			</span>
-			<span 
-				class="devices" 
-				ng-style="{'width': '{{country.data['Devices'] + 20}}px'}"
-				>
-				{{country.data['Devices']}}
-			</span>
-			
-			</div>
-		</div>
-		</li>
+		<country-display ng-repeat="country in controller.displayData" country="country">
+		</country-display>
+
+
 	</ul>
 
-
-
-
-<script src="node_modules/angular/angular.js"></script>
-<script src="app.js"></script>
 </body>
 </html>

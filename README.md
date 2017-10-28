@@ -15,3 +15,5 @@ The goal is to demonstrate proficiency in web development, using Angular 1.x as 
 * Use of CSS preprocessors is highly encouraged, but not required.
 * Your application must have an `index.html` and a `dist` directory. All files required by `index.html` to run must be in dist.
 * Your application must work properly on both Chrome and Firefox.
+
+

@@ -1,23 +1,16 @@
 // ------- Variables ------- >>>
-$blue: hsl(217°, 56%, 43%);
-$green: hsl(102°, 64%, 49%);
+$blue: hsl(217, 56%, 43%);
+$green: hsl(102, 64%, 49%);
 
 
 
 // ----------- Headers ------ >>>
 
-
-.header {
-	font-weight: 600;
-}
-
 .device-header {
-	@extend .header;
 	color: $green;
 }
 
 .channels-header {
-	@extend .header;
 	color: $blue;
 }
 
@@ -53,12 +46,11 @@ $green: hsl(102°, 64%, 49%);
 
 .country-name {
 	width: 30%;
+	line-height: 30px;
 }
-
 
 .country-disp {
 	display: flex;
-	justify-content: flex-start;
 	flex-wrap: wrap;
 }
 
@@ -70,30 +62,53 @@ $green: hsl(102°, 64%, 49%);
 
 // ------------ filtering ------>>>>
 
+.top {
+	width: 90vw;
+	display: flex;
+	flex-wrap: wrap;
+
+	div {
+		margin: 1%;
+	}
+
+	.filters{
+		width: 60%;
+		flex-grow: 1;
+	}
+}
+
 .sorter-a {
-	color: blue;
+	color: $blue;
 	cursor: pointer;
+	line-height: 30px;
 }
 
 .filters-form {
 	display: flex;
 	flex-wrap: wrap;
+	width: 97%;
 	justify-content: space-around;
+	border: solid black 1px;
+	padding: 1%;
 
 	div {
 		display: flex;
 		width: 100%;
+		margin: 1% 0;
 		.labels {
 			min-width: 100px;
 			margin-right: 10px;
 		}
 		select, input {
 			flex-grow: 1;
+			width: 70%;
 		}
 	}
 }
 
-
+sup{
+	font-size: 8pt;
+}
 
 
 

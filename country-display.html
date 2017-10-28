@@ -1,0 +1,21 @@
+<li class="country-list-item">
+			<div class="country-disp">
+			<span class="country-name">{{$ctrl.country.name || 'Unnamed Nation'}}</span>
+			<div class="bars">
+			<span 
+				class="channels"
+				ng-style="{'width': '{{$ctrl.country.data['Channels'] + 20}}px'}"
+				>
+				{{$ctrl.country.data['Channels']}}
+			</span>
+			<span 
+				class="devices" 
+				ng-style="{'width': '{{$ctrl.country.data['Devices'] + 20}}px'}"
+				>
+				{{$ctrl.country.data['Devices']}}
+			</span>
+			
+			</div>
+		</div>
+</li>
+
