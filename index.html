@@ -1,8 +1,122 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-controller="controller as controller">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Frontend Applicant Test</title>
+
 </head>
 <body>
+	<header>
+		<h1>Content Report</h1>
+	</header>
+	<div>
+		<div>
+			<h2 class="device-header"> Total Devices: {{totals['Devices']}} </h2>
+			<h2 class="channels-header"> Total Channels: {{totals['Channels']}} </h2>
+		</div>
+		<div class="filters">
+			<form class="filters-form">
+				<div>
+				<label class="labels" for="countryFilter">
+					Select Country:
+				</label>
+				<select 
+					id="countryFilter" 
+					name="countryFilter"
+					ng-change="filter.updateFilter('byName', filter.selectedOption)"
+					ng-model="filter.selectedOption"
+					ng-options="option for option in filter.options"
+					>
+				</select>
+				</div>
+				<div>
+				<label class="labels" for="sorter">
+					Sort by:
+				</label>
+					<select
+						id="sorter"
+						name="sorter"
+						ng-model="filter.sorter"
+						ng-options="option for option in filter.sortOptions"
+						ng-change="filter.updateFilter('sort', filter.sorter)"
+					>
+						
+					</select>
+				</div>
+				<div>
+					<label class="labels" for="searcher">
+						Search:
+					</label>
+					<input 
+						type="text" name="searcher" id="searcher"
+						placeholder="Type query to see results" 
+						ng-model="filter.typedFilter"
+						ng-change="filter.updateFilter('search', filter.typedFilter)">
+				</div>
+			</form>
+			<button ng-click="filter.updateFilter('clear')">Reset Filters</button>
+		</div>
+	</div>
+	
+		
+	
+	<ul>
+		<li class="country-list-item">
+			<div class="country-disp">
+				<a 
+					class="country-name sorter-a"
+					ng-click="filter.updateFilter('alpha')"
+					>
+					Country Name
+				</a>
+				<div class="bars">
+					<a 
+						class="sorter-a" 
+						ng-click="filter.updateFilter('sort', 'Channels')">
+						Channels /
+					</a>
+					<a 
+						class="sorter-a" 
+						ng-click="filter.updateFilter('sort', 'Devices')"
+						>
+						&nbsp; Devices
+					</a>
+					<sup>&nbsp;*click to sort</sup>
+				</div>
+
+			</div>
+		</li>
+		<li 
+			class="country-list-item" 
+			ng-repeat="country in controller.displayData">
+		
+		<!-- <country-display country="country"> </country-display> -->
+		<div class="country-disp">
+			<span class="country-name">{{country.name || 'Unnamed Nation'}}</span>
+			<div class="bars">
+			<span 
+				class="channels"
+				ng-style="{'width': '{{country.data['Channels'] + 20}}px'}"
+				>
+				{{country.data['Channels']}}
+			</span>
+			<span 
+				class="devices" 
+				ng-style="{'width': '{{country.data['Devices'] + 20}}px'}"
+				>
+				{{country.data['Devices']}}
+			</span>
+			
+			</div>
+		</div>
+		</li>
+	</ul>
+
+
+
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

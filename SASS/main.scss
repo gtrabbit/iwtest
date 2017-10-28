@@ -1,0 +1,110 @@
+// ------- Variables ------- >>>
+$blue: hsl(217°, 56%, 43%);
+$green: hsl(102°, 64%, 49%);
+
+
+
+// ----------- Headers ------ >>>
+
+
+.header {
+	font-weight: 600;
+}
+
+.device-header {
+	@extend .header;
+	color: $green;
+}
+
+.channels-header {
+	@extend .header;
+	color: $blue;
+}
+
+
+// ------ Specific for Bars ------>>>
+
+.bar {
+	display: inline-block;
+	text-align: center;
+	color: white;
+	height: 30px;
+	line-height: 30px;
+}
+
+.devices{
+	@extend .bar;
+	background-color: $green;
+}
+
+.channels {
+	@extend .bar;
+	background-color: $blue;
+}
+
+.bars {
+	display: inline-flex;
+	flex-grow: 1;
+}
+
+
+// --------- Country List -------->>>
+
+
+.country-name {
+	width: 30%;
+}
+
+
+.country-disp {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.country-list-item {
+	list-style: none;
+	margin: 2% 0;
+}
+
+
+// ------------ filtering ------>>>>
+
+.sorter-a {
+	color: blue;
+	cursor: pointer;
+}
+
+.filters-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+	div {
+		display: flex;
+		width: 100%;
+		.labels {
+			min-width: 100px;
+			margin-right: 10px;
+		}
+		select, input {
+			flex-grow: 1;
+		}
+	}
+}
+
+
+
+
+
+// ---------- Media Queries -------->>>
+
+
+@media only screen and (max-width: 600px){
+	
+	.country-name {
+		width: 100%;
+	}
+
+
+}
