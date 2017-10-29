@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('iwApp').component('countryDisplay', {
-		templateUrl: 'country-display.html',
+		templateUrl: 'dist/country-display.html',
 		bindings: {
 			country: '<'
 		}
